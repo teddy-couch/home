@@ -1,0 +1,1267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teddy Couches — Comfort, Redefined.</title>
+<meta name="theme-color" content="#ffffff">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --black:#111;
+ --white:#fff;
+ --gray:#f3f3f3;
+ --line:#dedede;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:"DM Sans",Arial,sans-serif;
+ background:white;
+ color:#111;
+}
+button,select,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.announcement{
+ background:#111;
+ color:white;
+ padding:12px;
+ text-align:center;
+ font-size:11px;
+ letter-spacing:1.5px;
+}
+header{
+ height:72px;
+ padding:0 5%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:white;
+ border-bottom:1px solid #eee;
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+.logo{
+ font-size:29px;
+ font-weight:800;
+ letter-spacing:-2px;
+ line-height:.9;
+ text-align:center;
+}
+.logo small{
+ display:block;
+ font-size:10px;
+ letter-spacing:4px;
+ margin-top:7px;
+}
+.icon-button{
+ border:0;
+ background:none;
+ padding:10px;
+ display:flex;
+ align-items:center;
+ gap:6px;
+}
+.icon-button svg{
+ width:24px;
+ height:24px;
+ stroke:currentColor;
+ fill:none;
+ stroke-width:1.5;
+}
+.hero{
+ position:relative;
+ background:#eeedeb;
+ overflow:hidden;
+}
+.hero img{
+ width:100%;
+ max-height:720px;
+ object-fit:cover;
+}
+.hero-copy{
+ background:#111;
+ color:white;
+ padding:65px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:30px;
+}
+.hero-copy h1{
+ font-size:clamp(42px,7vw,100px);
+ line-height:.95;
+ letter-spacing:-4px;
+ margin:15px 0;
+}
+.eyebrow{
+ font-size:11px;
+ text-transform:uppercase;
+ letter-spacing:1.8px;
+ font-weight:600;
+}
+.button{
+ border:1px solid #111;
+ background:#111;
+ color:white;
+ padding:18px 25px;
+ font-weight:600;
+ font-size:13px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:25px;
+}
+.button.light{
+ background:white;
+ color:black;
+ border-color:white;
+}
+.button:disabled{
+ opacity:.5;
+ cursor:not-allowed;
+}
+.strip{
+ display:flex;
+ justify-content:space-around;
+ gap:15px;
+ padding:22px;
+ border-bottom:1px solid var(--line);
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:1px;
+}
+.product-layout{
+ display:grid;
+ grid-template-columns:1.2fr .8fr;
+ max-width:1600px;
+ margin:auto;
+}
+.gallery{
+ background:#f3f3f3;
+ position:relative;
+ min-height:480px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+}
+.gallery img{
+ width:100%;
+ aspect-ratio:1.45;
+ object-fit:contain;
+}
+.gallery-counter{
+ position:absolute;
+ right:20px;
+ bottom:20px;
+ background:#ffffffdb;
+ padding:8px 14px;
+ border-radius:30px;
+ font-size:12px;
+}
+.arrows{
+ position:absolute;
+ top:50%;
+ left:15px;
+ right:15px;
+ display:flex;
+ justify-content:space-between;
+ pointer-events:none;
+}
+.arrows button{
+ pointer-events:auto;
+ border:0;
+ background:white;
+ width:38px;
+ height:38px;
+ border-radius:50%;
+ font-size:18px;
+}
+.thumbnails{
+ display:flex;
+ gap:8px;
+ padding:12px;
+ background:white;
+ overflow-x:auto;
+}
+.thumbnail{
+ flex:0 0 100px;
+ border:1px solid #ddd;
+ background:#f4f4f4;
+ padding:0;
+}
+.thumbnail.active{border:2px solid black}
+.thumbnail img{
+ width:100%;
+ height:70px;
+ object-fit:contain;
+}
+.product-info{
+ padding:45px 7%;
+}
+.product-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:baseline;
+ gap:20px;
+}
+.product-heading h2{
+ font-size:clamp(27px,3vw,43px);
+ font-weight:600;
+ letter-spacing:-1.8px;
+ margin:0;
+}
+.price{
+ font-size:22px;
+ white-space:nowrap;
+}
+.description{
+ font-size:14px;
+ line-height:1.8;
+ color:#666;
+ margin:20px 0 30px;
+}
+.label{
+ font-family:monospace;
+ font-size:13px;
+ letter-spacing:.6px;
+ text-transform:uppercase;
+ margin-bottom:12px;
+}
+.swatches{
+ display:flex;
+ flex-wrap:wrap;
+ gap:13px;
+ margin:20px 0;
+}
+.swatch{
+ width:39px;
+ height:39px;
+ border-radius:50%;
+ border:1px solid #aaa;
+}
+.swatch.active{
+ outline:2px solid black;
+ outline-offset:4px;
+}
+select{
+ width:100%;
+ background:white;
+ border:1px solid #ccc;
+ border-radius:0;
+ padding:18px;
+ font-size:14px;
+ color:#111;
+}
+.option{margin:25px 0}
+.shipping{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-top:1px solid #ddd;
+ padding:20px 0;
+ font-size:14px;
+}
+.product-info .button{width:100%}
+.small{
+ font-size:12px;
+ color:#777;
+ line-height:1.7;
+}
+details{
+ border-bottom:1px solid #ddd;
+ padding:19px 0;
+}
+summary{
+ font-size:14px;
+ font-weight:600;
+ cursor:pointer;
+}
+details p{
+ font-size:13px;
+ color:#666;
+ line-height:1.8;
+}
+.collection{
+ padding:70px 5%;
+}
+.collection h2{
+ font-size:clamp(34px,5vw,65px);
+ letter-spacing:-3px;
+ margin:15px 0 30px;
+}
+.color-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+.color-card{
+ border:0;
+ background:white;
+ padding:0;
+ text-align:left;
+ color:black;
+}
+.color-card img{
+ width:100%;
+ aspect-ratio:1.5;
+ object-fit:contain;
+ background:#f2f2f2;
+}
+.color-card .caption{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ padding:15px 0;
+ font-size:14px;
+}
+.story{
+ background:#111;
+ color:white;
+ padding:80px 6%;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:40px;
+}
+.story img{
+ width:100%;
+ object-fit:contain;
+}
+.story h2{
+ font-size:clamp(38px,5vw,75px);
+ line-height:1;
+ letter-spacing:-3px;
+ margin:20px 0;
+}
+.story p{
+ color:#ccc;
+ font-size:14px;
+ line-height:1.8;
+}
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+ padding:65px 5%;
+}
+.feature{
+ background:#f5f5f5;
+ padding:30px;
+}
+.feature h3{
+ font-size:20px;
+ margin-top:0;
+}
+.feature p{
+ font-size:13px;
+ color:#666;
+ line-height:1.8;
+}
+footer{
+ background:#111;
+ color:white;
+ padding:60px 5% 25px;
+}
+.footer-grid{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr;
+ gap:30px;
+}
+footer p,footer a{
+ font-size:13px;
+ line-height:1.8;
+ color:#bbb;
+}
+.footer-bottom{
+ border-top:1px solid #444;
+ padding-top:25px;
+ margin-top:50px;
+ font-size:11px;
+ color:#aaa;
+}
+.overlay{
+ position:fixed;
+ inset:0;
+ background:#0007;
+ z-index:50;
+ display:none;
+}
+.overlay.open{display:block}
+.drawer{
+ position:fixed;
+ top:0;
+ right:0;
+ height:100dvh;
+ width:min(440px,100%);
+ background:white;
+ z-index:51;
+ transform:translateX(105%);
+ transition:transform .25s;
+ padding:25px;
+ display:flex;
+ flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-header{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+.drawer-header button{
+ border:0;
+ background:none;
+ font-size:28px;
+}
+.cart-items{
+ flex:1;
+ overflow:auto;
+}
+.cart-item{
+ display:flex;
+ gap:15px;
+ padding:20px 0;
+ border-bottom:1px solid #ddd;
+}
+.cart-item img{
+ width:110px;
+ height:85px;
+ object-fit:contain;
+ background:#f4f4f4;
+}
+.cart-item-info{flex:1}
+.cart-item-info p{
+ font-size:12px;
+ color:#666;
+}
+.quantity{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin:10px 0;
+}
+.quantity button{
+ border:1px solid #ddd;
+ background:white;
+ width:30px;
+ height:30px;
+}
+.remove{
+ background:none;
+ border:0;
+ text-decoration:underline;
+ padding:0;
+ font-size:11px;
+}
+.total-row{
+ display:flex;
+ justify-content:space-between;
+ font-size:14px;
+ margin:15px 0;
+}
+.total-row.final{
+ font-size:20px;
+ font-weight:700;
+ border-top:1px solid #ddd;
+ padding-top:20px;
+}
+.menu{
+ display:none;
+ position:fixed;
+ top:72px;
+ left:0;
+ right:0;
+ background:white;
+ z-index:25;
+ padding:30px;
+ border-bottom:1px solid #ddd;
+}
+.menu.open{
+ display:grid;
+ gap:25px;
+}
+.menu a{
+ font-size:23px;
+ font-weight:600;
+}
+.missing{
+ padding:40px;
+ text-align:center;
+ color:#777;
+}
+@media(max-width:800px){
+ header{height:65px}
+ .menu{top:65px}
+ .hero-copy{
+  flex-direction:column;
+  align-items:flex-start;
+  padding:40px 6%;
+ }
+ .hero-copy h1{letter-spacing:-2.5px}
+ .product-layout{grid-template-columns:1fr}
+ .gallery{min-height:300px}
+ .product-info{padding:30px 5%}
+ .price{font-size:18px}
+ .color-grid{grid-template-columns:repeat(2,1fr)}
+ .story{grid-template-columns:1fr}
+ .features{grid-template-columns:1fr}
+ .strip{flex-wrap:wrap;text-align:center}
+ .footer-grid{grid-template-columns:1fr 1fr}
+ .footer-grid>div:first-child{grid-column:span 2}
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+ COMFORT, REDEFINED — THE TEDDY COLLECTION
+</div>
+
+<header>
+ <button class="icon-button" id="menuButton" aria-label="Menu">
+  <svg viewBox="0 0 24 24">
+   <path d="M3 5h18M3 12h18M3 19h18"/>
+  </svg>
+ </button>
+
+ <a href="#" class="logo">
+  TEDDY
+  <small>COUCHES</small>
+ </a>
+
+ <button class="icon-button" id="cartButton" aria-label="Shopping bag">
+  <svg viewBox="0 0 24 24">
+   <path d="M4 7h16l1 14H3L4 7zM8 8V5a4 4 0 018 0v3"/>
+  </svg>
+  <span id="cartCount">0</span>
+ </button>
+</header>
+
+<nav class="menu" id="menu">
+ <a href="#shop">Shop Teddy</a>
+ <a href="#colors">Explore colors</a>
+ <a href="#about">About Teddy</a>
+</nav>
+
+<main>
+
+<section class="hero">
+ <img id="heroImage" alt="Cream Teddy Couch">
+ <div class="hero-copy">
+  <div>
+   <div class="eyebrow">The original Teddy Couch</div>
+   <h1>Comfort.<br>Without limits.</h1>
+  </div>
+  <a class="button light" href="#shop">
+   SHOP THE COLLECTION <span>↗</span>
+  </a>
+ </div>
+</section>
+
+<div class="strip">
+ <span>Boneless design</span>
+ <span>Soft corduroy</span>
+ <span>Five colors</span>
+ <span>Convertible comfort</span>
+</div>
+
+<section id="shop" class="product-layout">
+
+ <div>
+  <div class="gallery" id="gallery">
+   <img id="mainImage" alt="Teddy Couch">
+   <div class="arrows" id="arrows">
+    <button id="previous" aria-label="Previous photo">←</button>
+    <button id="next" aria-label="Next photo">→</button>
+   </div>
+   <div class="gallery-counter" id="counter">1/1</div>
+  </div>
+  <div class="thumbnails" id="thumbnails"></div>
+ </div>
+
+ <div class="product-info">
+
+  <div class="product-heading">
+   <h2>The Teddy Couch</h2>
+   <span class="price">$499.99</span>
+  </div>
+
+  <p class="description">
+   A softer approach to modern living.
+   Our low-profile corduroy couch transforms
+   from a relaxed sofa into a spacious floor lounger.
+  </p>
+
+  <div class="label">
+   Color: <span id="selectedColor">Cream White</span>
+  </div>
+
+  <div class="swatches" id="swatches"></div>
+
+  <select id="colorSelect" aria-label="Choose couch color"></select>
+
+  <div class="option">
+   <div class="label">Configuration</div>
+   <select aria-label="Configuration">
+    <option>Three-seater convertible</option>
+   </select>
+  </div>
+
+  <div class="shipping">
+   <span>Standard shipping per couch</span>
+   <strong>$49.99</strong>
+  </div>
+
+  <button class="button" id="addToCart">
+   ADD TO BAG — $499.99 <span>→</span>
+  </button>
+
+  <p class="small">
+   $549.98 including standard shipping,
+   before applicable taxes.
+  </p>
+
+  <details open>
+   <summary>Product details</summary>
+   <p>
+    Low-profile boneless construction,
+    ribbed corduroy upholstery, wide cushioned
+    armrests and a convertible lounging design.
+   </p>
+  </details>
+
+  <details>
+   <summary>Design</summary>
+   <p>
+    A floor-level foam base without traditional
+    raised furniture legs. Designed for relaxed
+    seating and lounging.
+   </p>
+  </details>
+
+  <details>
+   <summary>Shipping</summary>
+   <p>
+    Standard shipping is $49.99 per couch.
+    Delivery eligibility and estimated arrival
+    dates are subject to confirmation.
+   </p>
+  </details>
+
+  <details>
+   <summary>Product imagery</summary>
+   <p>
+    Studio images are illustrative product
+    visualizations. Actual fabric shades and
+    appearance may vary.
+   </p>
+  </details>
+
+ </div>
+</section>
+
+<section class="collection" id="colors">
+ <div class="eyebrow">Find your favorite</div>
+ <h2>Five ways to Teddy.</h2>
+ <div class="color-grid" id="colorGrid"></div>
+</section>
+
+<section class="story" id="about">
+ <img id="sleeperImage" alt="Teddy Couch in sleeper configuration">
+ <div>
+  <div class="eyebrow">More than a couch</div>
+  <h2>Sit.<br>Stretch.<br>Stay.</h2>
+  <p>
+   A couch for slow mornings, late nights,
+   movie marathons and everything in between.
+   Transform your space with the Teddy Couch.
+  </p>
+  <a href="#shop" class="button light">
+   MAKE IT YOURS <span>↗</span>
+  </a>
+ </div>
+</section>
+
+<section class="features">
+ <div class="feature">
+  <h3>Boneless comfort.</h3>
+  <p>A relaxed floor-level silhouette without traditional raised legs.</p>
+ </div>
+ <div class="feature">
+  <h3>Soft by nature.</h3>
+  <p>Textured corduroy upholstery for a cozy, inviting appearance.</p>
+ </div>
+ <div class="feature">
+  <h3>Made to transform.</h3>
+  <p>Switch between everyday seating and an extended lounging configuration.</p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="footer-grid">
+  <div>
+   <div class="logo" style="text-align:left">
+    TEDDY
+    <small>COUCHES</small>
+   </div>
+   <p>A softer way to live.</p>
+  </div>
+  <div>
+   <strong>SHOP</strong>
+   <p><a href="#shop">The Teddy Couch</a></p>
+   <p><a href="#colors">All colors</a></p>
+  </div>
+  <div>
+   <strong>INFORMATION</strong>
+   <p>Standard shipping: $49.99 per couch</p>
+   <p><a href="#about">About Teddy</a></p>
+  </div>
+ </div>
+ <div class="footer-bottom">
+  © 2026 Teddy Couches. All rights reserved.
+ </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+
+ <div class="drawer-header">
+  <h2>Your bag</h2>
+  <button id="closeCart" aria-label="Close bag">×</button>
+ </div>
+
+ <div class="cart-items" id="cartItems"></div>
+
+ <div>
+  <div class="total-row">
+   <span>Subtotal</span>
+   <span id="subtotal">$0.00</span>
+  </div>
+  <div class="total-row">
+   <span>Shipping</span>
+   <span id="shipping">$0.00</span>
+  </div>
+  <div class="total-row final">
+   <span>Total</span>
+   <span id="total">$0.00</span>
+  </div>
+
+  <button class="button" id="checkout" style="width:100%">
+   CHECKOUT <span>→</span>
+  </button>
+
+  <p class="small" id="checkoutNote">
+   Checkout is not yet available.
+   Applicable taxes are not included.
+  </p>
+ </div>
+
+</aside>
+
+<script>
+
+/* ======================================
+   TEDDY COUCHES
+   PRODUCT IMAGES FROM YOUR GITHUB REPO
+   ====================================== */
+
+const PRODUCTS = [
+ {
+  id:"white",
+  name:"Cream White",
+  hex:"#e4ded1",
+  images:[
+   "4AF88D38-9981-486D-9E18-EEAA0C7E1EEF.png"
+  ]
+ },
+ {
+  id:"black",
+  name:"Black",
+  hex:"#171717",
+  images:[
+   "E269F44B-98B6-4F3D-8C0F-F8A4061B7A1B.png",
+   "D8E43E04-66A8-4FAA-9873-A2CAA3053AF7.png"
+  ]
+ },
+ {
+  id:"gray",
+  name:"Charcoal Gray",
+  hex:"#555555",
+  images:[
+   "75EE141B-23B7-4115-A14E-B649A2952DC8.png",
+   "22B52638-4F79-4BBD-A76B-CB3555B295D9.png"
+  ]
+ },
+ {
+  id:"orange",
+  name:"Burnt Orange",
+  hex:"#a95429",
+  images:[
+   "8A1C412B-1F0A-4F4D-9C08-8A324CA0EFF6.png"
+  ]
+ },
+ {
+  id:"green",
+  name:"Olive Green",
+  hex:"#737d4b",
+  images:[
+   "EFC35F2C-1D5B-475D-958F-4DC989E203A6.png"
+  ]
+ }
+];
+
+/* PRICES IN CENTS */
+
+const PRICE = 49999;
+const SHIPPING = 4999;
+
+/*
+ Add verified payment links here after
+ setting up your payment processor.
+
+ Each link must charge the correct product
+ price, shipping and applicable taxes.
+*/
+
+const PAYMENT_LINKS = {
+ white:"",
+ black:"",
+ gray:"",
+ orange:"",
+ green:""
+};
+
+let selected = PRODUCTS[0];
+let photoIndex = 0;
+let cart = [];
+
+const $ = id => document.getElementById(id);
+
+const money = cents =>
+ new Intl.NumberFormat("en-US",{
+  style:"currency",
+  currency:"USD"
+ }).format(cents/100);
+
+function loadCart(){
+ try{
+  const saved=JSON.parse(
+   localStorage.getItem("teddy-cart-v2")||"[]"
+  );
+  cart=Array.isArray(saved)
+   ?saved.filter(item=>
+    PRODUCTS.some(p=>p.id===item.id)&&
+    Number.isInteger(item.quantity)&&
+    item.quantity>0
+   )
+   :[];
+ }catch{
+  cart=[];
+ }
+}
+
+function saveCart(){
+ try{
+  localStorage.setItem(
+   "teddy-cart-v2",
+   JSON.stringify(cart)
+  );
+ }catch{}
+}
+
+function setImage(img,path,alt){
+ img.alt=alt;
+ img.src="./"+path;
+}
+
+function selectProduct(product){
+ selected=product;
+ photoIndex=0;
+ renderProduct();
+}
+
+function renderGallery(){
+ const photos=selected.images;
+
+ photoIndex=
+  (photoIndex+photos.length)%photos.length;
+
+ setImage(
+  $("mainImage"),
+  photos[photoIndex],
+  selected.name+" Teddy Couch"
+ );
+
+ $("counter").textContent=
+  (photoIndex+1)+"/"+photos.length;
+
+ $("arrows").style.display=
+  photos.length>1?"flex":"none";
+
+ $("thumbnails").replaceChildren();
+
+ photos.forEach((photo,index)=>{
+  const button=document.createElement("button");
+
+  button.className="thumbnail"+
+   (index===photoIndex?" active":"");
+
+  button.setAttribute(
+   "aria-label",
+   "View photo "+(index+1)
+  );
+
+  const img=document.createElement("img");
+
+  setImage(img,photo,selected.name);
+
+  button.appendChild(img);
+
+  button.onclick=()=>{
+   photoIndex=index;
+   renderGallery();
+  };
+
+  $("thumbnails").appendChild(button);
+ });
+}
+
+function renderProduct(){
+
+ $("selectedColor").textContent=selected.name;
+ $("colorSelect").value=selected.id;
+ $("swatches").replaceChildren();
+
+ PRODUCTS.forEach(product=>{
+
+  const button=document.createElement("button");
+
+  button.className="swatch"+
+   (selected.id===product.id?" active":"");
+
+  button.style.background=product.hex;
+  button.title=product.name;
+
+  button.setAttribute(
+   "aria-label",
+   product.name
+  );
+
+  button.setAttribute(
+   "aria-pressed",
+   String(selected.id===product.id)
+  );
+
+  button.onclick=()=>selectProduct(product);
+
+  $("swatches").appendChild(button);
+ });
+
+ renderGallery();
+}
+
+function setupColors(){
+
+ PRODUCTS.forEach(product=>{
+
+  const option=document.createElement("option");
+  option.value=product.id;
+  option.textContent=product.name;
+  $("colorSelect").appendChild(option);
+
+  const card=document.createElement("button");
+  card.className="color-card";
+
+  const img=document.createElement("img");
+
+  setImage(
+   img,
+   product.images[0],
+   product.name+" Teddy Couch"
+  );
+
+  const caption=document.createElement("div");
+  caption.className="caption";
+
+  const name=document.createElement("strong");
+  name.textContent=product.name;
+
+  const price=document.createElement("span");
+  price.textContent=money(PRICE);
+
+  caption.append(name,price);
+  card.append(img,caption);
+
+  card.onclick=()=>{
+   selectProduct(product);
+   $("shop").scrollIntoView({
+    behavior:"smooth"
+   });
+  };
+
+  $("colorGrid").appendChild(card);
+ });
+
+ $("colorSelect").onchange=event=>{
+  const product=PRODUCTS.find(
+   p=>p.id===event.target.value
+  );
+  if(product)selectProduct(product);
+ };
+}
+
+$("previous").onclick=()=>{
+ photoIndex--;
+ renderGallery();
+};
+
+$("next").onclick=()=>{
+ photoIndex++;
+ renderGallery();
+};
+
+/* MOBILE GALLERY SWIPING */
+
+let touchStart=0;
+
+$("gallery").addEventListener(
+ "touchstart",
+ event=>{
+  touchStart=event.changedTouches[0].clientX;
+ },
+ {passive:true}
+);
+
+$("gallery").addEventListener(
+ "touchend",
+ event=>{
+  const difference=
+   touchStart-event.changedTouches[0].clientX;
+
+  if(Math.abs(difference)>45){
+   photoIndex+=difference>0?1:-1;
+   renderGallery();
+  }
+ },
+ {passive:true}
+);
+
+/* SHOPPING BAG */
+
+function addToCart(){
+
+ const existing=cart.find(
+  item=>item.id===selected.id
+ );
+
+ if(existing){
+  existing.quantity++;
+ }else{
+  cart.push({
+   id:selected.id,
+   quantity:1
+  });
+ }
+
+ saveCart();
+ renderCart();
+ openCart();
+}
+
+function changeQuantity(id,amount){
+
+ const item=cart.find(item=>item.id===id);
+ if(!item)return;
+
+ item.quantity+=amount;
+
+ if(item.quantity<=0){
+  cart=cart.filter(item=>item.id!==id);
+ }
+
+ saveCart();
+ renderCart();
+}
+
+function removeItem(id){
+ cart=cart.filter(item=>item.id!==id);
+ saveCart();
+ renderCart();
+}
+
+function renderCart(){
+
+ const area=$("cartItems");
+ area.replaceChildren();
+
+ const quantity=cart.reduce(
+  (sum,item)=>sum+item.quantity,0
+ );
+
+ if(quantity===0){
+  area.textContent="Your bag is empty.";
+ }
+
+ cart.forEach(item=>{
+
+  const product=PRODUCTS.find(
+   p=>p.id===item.id
+  );
+
+  if(!product)return;
+
+  const row=document.createElement("div");
+  row.className="cart-item";
+
+  const img=document.createElement("img");
+  setImage(img,product.images[0],product.name);
+
+  const info=document.createElement("div");
+  info.className="cart-item-info";
+
+  const title=document.createElement("strong");
+  title.textContent="The Teddy Couch";
+
+  const color=document.createElement("p");
+  color.textContent=product.name;
+
+  const price=document.createElement("strong");
+  price.textContent=money(
+   PRICE*item.quantity
+  );
+
+  const controls=document.createElement("div");
+  controls.className="quantity";
+
+  const minus=document.createElement("button");
+  minus.textContent="−";
+  minus.setAttribute("aria-label","Decrease quantity");
+  minus.onclick=()=>changeQuantity(item.id,-1);
+
+  const number=document.createElement("span");
+  number.textContent=item.quantity;
+
+  const plus=document.createElement("button");
+  plus.textContent="+";
+  plus.setAttribute("aria-label","Increase quantity");
+  plus.onclick=()=>changeQuantity(item.id,1);
+
+  controls.append(minus,number,plus);
+
+  const remove=document.createElement("button");
+  remove.className="remove";
+  remove.textContent="Remove";
+  remove.onclick=()=>removeItem(item.id);
+
+  info.append(title,color,price,controls,remove);
+  row.append(img,info);
+  area.appendChild(row);
+ });
+
+ $("cartCount").textContent=quantity;
+
+ $("subtotal").textContent=
+  money(quantity*PRICE);
+
+ $("shipping").textContent=
+  money(quantity*SHIPPING);
+
+ $("total").textContent=
+  money(quantity*(PRICE+SHIPPING));
+
+ const eligible=
+  quantity===1&&
+  cart.length===1&&
+  Boolean(PAYMENT_LINKS[cart[0].id]);
+
+ $("checkout").disabled=!eligible;
+
+ $("checkoutNote").textContent=
+  eligible
+   ?"Applicable taxes calculated at checkout."
+   :"Checkout is not yet available. No payment will be collected.";
+}
+
+function openCart(){
+ $("drawer").classList.add("open");
+ $("overlay").classList.add("open");
+ document.body.style.overflow="hidden";
+}
+
+function closeCart(){
+ $("drawer").classList.remove("open");
+ $("overlay").classList.remove("open");
+ document.body.style.overflow="";
+}
+
+$("addToCart").onclick=addToCart;
+$("cartButton").onclick=openCart;
+$("closeCart").onclick=closeCart;
+$("overlay").onclick=closeCart;
+
+$("checkout").onclick=()=>{
+
+ const quantity=cart.reduce(
+  (sum,item)=>sum+item.quantity,0
+ );
+
+ if(quantity!==1||cart.length!==1)return;
+
+ const link=PAYMENT_LINKS[cart[0].id];
+
+ if(link&&link.startsWith("https://")){
+  window.location.href=link;
+ }
+};
+
+/* NAVIGATION */
+
+$("menuButton").onclick=()=>{
+ $("menu").classList.toggle("open");
+};
+
+document.querySelectorAll(".menu a")
+ .forEach(link=>{
+  link.onclick=()=>
+   $("menu").classList.remove("open");
+ });
+
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape"){
+  closeCart();
+  $("menu").classList.remove("open");
+ }
+});
+
+/* INITIALIZE */
+
+setImage(
+ $("heroImage"),
+ PRODUCTS[0].images[0],
+ "Cream White Teddy Couch"
+);
+
+setImage(
+ $("sleeperImage"),
+ PRODUCTS[1].images[1],
+ "Black Teddy Couch unfolded"
+);
+
+loadCart();
+setupColors();
+renderProduct();
+renderCart();
+
+</script>
+</body>
+</html>
